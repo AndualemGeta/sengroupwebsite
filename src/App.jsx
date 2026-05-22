@@ -137,7 +137,7 @@ export default function App() {
       <section id="contact" className="contact">
         <h2>First in Africa. Expanding to the Middle East.</h2>
         <p>SEN Group operates primarily in Ethiopia and across the African region, with expanding activities in the Middle East.</p>
-        <a href="mailto:info@sengroup.com" className="button contact-button">Contact SEN Group</a>
+        <a href="mailto:info@sengrouplc.com" className="button contact-button">Contact SEN Group</a>
       </section>
 
       <footer>© {new Date().getFullYear()} SEN Group. Built for Performance. Designed for Reliability.</footer>
