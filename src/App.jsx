@@ -36,6 +36,44 @@ const reasons = [
 function CheckIcon() {
   return <span className="check">✓</span>;
 }
+const projects = [
+  {
+    image: "/images/runway-lights.jpeg",
+    title: "Airfield Ground Lighting",
+    description:
+      "Design and installation of ICAO-compliant runway lighting systems.",
+  },
+  {
+    image: "/images/terminal-aircraft.jpeg",
+    title: "Airport Terminal Systems",
+    description:
+      "Integrated airport infrastructure and operational technologies.",
+  },
+  {
+    image: "/images/control-room.jpeg",
+    title: "Control Room Integration",
+    description:
+      "Monitoring, communication, and operational control solutions.",
+  },
+  {
+    image: "/images/data-center.jpeg",
+    title: "Electrical Engineering",
+    description:
+      "Reliable power distribution and industrial electrical systems.",
+  },
+  {
+    image: "/images/air-traffic-control.jpeg",
+    title: "Security & Surveillance",
+    description:
+      "Advanced CCTV and access control implementation.",
+  },
+  {
+    image: "/images/electrical-panels.jpeg",
+    title: "Aviation Technology",
+    description:
+      "Modern airport systems designed for safety and efficiency.",
+  },
+];
 
 export default function App() {
   return (
@@ -114,10 +152,21 @@ export default function App() {
           <h2>Built for performance. Designed for reliability.</h2>
           <p>SEN Group delivers reliable airport and electrical engineering systems that meet international standards.</p>
           <div className="gallery">
-            {imagePaths.gallery.map((src, index) => (
-              <img src={src} alt={`SEN Group project ${index + 1}`} key={src} />
-            ))}
-          </div>
+  {projects.map((project) => (
+    <div className="project-card" key={project.title}>
+      <img
+        src={project.image}
+        alt={project.title}
+        className="project-image"
+      />
+
+      <div className="project-overlay">
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+      </div>
+    </div>
+  ))}
+</div>
         </div>
       </section>
 
@@ -214,6 +263,57 @@ p { font-size: 18px; line-height: 1.75; color: #475569; }
 .work-section p { color: #cbd5e1; }
 .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 44px; }
 .gallery img { width: 100%; height: 290px; object-fit: cover; border-radius: 22px; box-shadow: 0 20px 45px rgba(0,0,0,.28); }
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  cursor: pointer;
+}
+
+.project-image {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.08);
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(2, 6, 23, 0.85);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 24px;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-overlay h3 {
+  margin: 0 0 8px;
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.project-overlay p {
+  margin: 0;
+  color: #e2e8f0;
+  font-size: 15px;
+  line-height: 1.6;
+}
 .reason-list { display: grid; gap: 14px; }
 .reason { display: flex; gap: 14px; align-items: flex-start; background: #f8fafc; border-radius: 18px; padding: 18px; color: #334155; font-weight: 700; }
 .contact { position: relative; overflow: hidden; background: #1d4ed8; color: white; text-align: center; padding: 105px 24px; }
